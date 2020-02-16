@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Oxygen&display=swap');
+
+.ix-text{
+	&-white{
+		color: $color-white!important;
+	}
+	&-black{
+		color: $color-black!important;
+	}
+	&-green{
+		color: $color-green!important;
+	}
+	&-grey{
+		color: $color-grey!important;
+	}
+	&-grey-light{
+		color: $color-grey-light!important;
+	}
+	&-grey-dark{
+		color: $color-grey-dark!important;
+	}
+}

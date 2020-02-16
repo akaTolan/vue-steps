@@ -1,0 +1,127 @@
+<template>
+  <div class="ix-invoice-preview">
+  	<div class="ix-invoice-preview__info">
+  		<div class="ix-invoice-preview__info__logo"
+  		:style="`background:#${logoColor};`">
+  		</div>
+  		<div class="ix-invoice-preview__info__text">
+  			<span>{{name}}</span>
+  			<span>{{adress}}</span>
+  			<span>{{zipCode}}</span>
+  			<span>{{country}}</span>
+  			<span>Email: {{email}}</span>
+  			<span>Tel.: {{phone}}</span>
+  			<span>NIF: {{nif}}</span>
+  		</div>
+  	</div>
+  	<div class="ix-invoice-preview__bg">
+  		<img 
+  		src="~@/assets/img/invoice.png" 
+  		srcset="~@/assets/img/invoice@2x.png 2x">
+		</div>
+  	</div>
+</template>
+
+<script>
+  export default {
+    name: 'InvoicePreview',
+    props: {
+      logoColor: {
+        type: String,
+        default: '18BB80'
+      },
+      name: {
+        type: String,
+        default: ''
+      },
+      adress: {
+        type: String,
+        default: ''
+      },
+      zipCode: {
+        type: String,
+        default: ''
+      },
+      country: {
+        type: String,
+        default: ''
+      },
+      email: {
+        type: String,
+        default: ''
+      },
+      phone: {
+        type: String,
+        default: '+000 00 000 00 00'
+      },
+      nif: {
+        type: Number,
+        default: 0
+      }
+    },
+    computed: {
+    // 	this.invoice.nif = this.getNif == 0 ? '000 000 000' : this.getNif
+		  // this.invoice.country = this.getCountry.label == '' ? 'NAO' : this.getCountry.label
+		  // this.invoice.color = this.getCountry.label == '' ? 'CCCCCC' : this.getInvoiceColor
+    }
+  }
+</script>
+
+
+
+<style lang="scss">
+.ix{
+	
+	&-invoice-preview   {
+		height: 100%;
+		background-image: url("~@/assets/img/background.png");
+		background-size: cover;
+		background-repeat: no-repeat;
+		position: relative;
+		
+		&__plant{
+			position: absolute;
+			bottom: 0;
+		}
+
+		&__bg{
+			position: absolute;
+			top: 46%;
+			left: 25%;
+			transform: translateY(-50%);
+			z-index: 33;
+		}
+
+		&__info{
+			position: absolute;
+			transform: translateY(-50%);
+			top: calc(46% - 200px);
+			left: 35%;
+			z-index: 44;
+			
+			&__logo{
+				width: 29px;
+				height: 29px;
+				border-radius: 50%;
+				line-height: 0;
+				position: relative;
+				transition: background .25s ease-in-out;
+				
+				&:after {
+			        content: "";
+			        display: block;
+			        padding-bottom: 100%;
+			        }
+			}
+
+			&__text{
+				margin-top: 12px;
+				font-size: 0.5rem;
+				display: flex;
+				flex-direction: column;
+			}
+		}
+	}
+
+}
+</style>

@@ -1,0 +1,33 @@
+{
+  "name": "ix-challenge",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve --open",
+    "build": "vue-cli-service build"
+  },
+  "dependencies": {
+    "bootstrap": "^4.4.1",
+    "bootstrap-vue": "^2.4.1",
+    "sass-rem": "^2.0.1",
+    "vue": "^2.6.11",
+    "vue-country-flag": "^1.3.1",
+    "vue-router": "^3.1.5",
+    "vue-select": "^3.4.0",
+    "vue-svg-loader": "^0.16.0",
+    "vuex": "^3.1.2",
+    "vuex-persistedstate": "^2.7.1"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-router": "~4.2.0",
+    "@vue/cli-plugin-vuex": "~4.2.0",
+    "@vue/cli-service": "~4.2.0",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^8.0.2",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ]
+}
