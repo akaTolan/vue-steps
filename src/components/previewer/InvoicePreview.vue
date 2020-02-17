@@ -56,20 +56,12 @@
         default: '+000 00 000 00 00'
       },
       nif: {
-        type: Number,
-        default: 0
+        type: String,
+        default: '000000000'
       }
     },
     computed: {
-      getNif() {
-        return this.nif == 0 ? '000 000 000' : this.getNif
-      },
-      getCountry() {
-        return this.country == '' ? 'NAO' : this.country
-      },
-      getColor() {
-        return this.logoColor == '' ? 'CCCCCC' : this.logoColor
-      },
+    	
     }
   }
 </script>

@@ -13,6 +13,7 @@
           class="ix-text-grey mb-3"
           id="nif-input"
           v-model="nif"
+          @blur="onNifBlur"
           maxlength="9"
           required
         ></b-form-input>
@@ -56,17 +57,17 @@
       this.country = this.getCountry
     },
     watch: {
-      nif(val) {
-        this.nif = val
-        console.log(this.isNifValid(Number(val)).valid)
-        if(this.nif.length === 9){
-          if(this.isNifValid(this.nif).valid){
-            this.onNifValidSelected(Number(this.nif))
-          }else{
-            console.log(this.isNifValid(this.nif).data.message)
-          }
-        }
-      }
+      // nif(val) {
+      //   this.nif = val
+      //   if(this.nif.length === 9){
+      //     if(this.isNifValid(Number(val)).valid){
+      //       this.onNifValidSelected(val)
+      //     }else{
+      //       console.log(this.isNifValid(this.nif).data.message)
+      //       // alert('NIF Inválido')
+      //     }
+      //   }
+      // }
 
     },
     methods: {
@@ -77,6 +78,16 @@
       onCountrySelected(val) {
         console.log('onCountrySelected: ', val)
         this.setCountry(val)
+      },
+      onNifBlur() {
+        console.log('onNifSelected: ', this.nif)
+        this.onNifValidSelected(this.nif)
+        // if(this.isNifValid(Number(val)).valid){
+        //   this.onNifValidSelected(val)
+        // }else{
+        //   console.log(this.isNifValid(this.nif).data.message)
+        //   // alert('NIF Inválido')
+        // }
       },
       onNifValidSelected(val) {
         console.log('onNifSelected: ', val)

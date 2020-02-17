@@ -3,6 +3,7 @@ export const formValidate = {
     isNifValid(value) {
       console.log(value)
       let nif = (typeof value === 'string') ? value : value.toString()
+      // nif = Number(nif)
       let result = {
         valid: false,
         data: {
