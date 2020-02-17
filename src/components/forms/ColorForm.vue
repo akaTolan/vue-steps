@@ -1,6 +1,6 @@
 <template>
-	<div class="ix-invoice-color-form">
-    <div class="ix-form small pr-5 mb-3">
+	<div class="ix-invoice-color-form ">
+    <div class="ix-form small pr-5 mt-4 mb-3">
       <b-input-group prepend="#">
         <b-input 
         id="color-input" 

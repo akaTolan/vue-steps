@@ -10,9 +10,9 @@
     @input="setSelected"
     >
       <template slot="selected-option" slot-scope="option">
-        <div class="ix-country-nif-form__select__item">
-          <span class="ix-country-nif-form__select__item-text">{{ option.label }}</span>
-          <country-flag :country="option.value" size='small' class="ix-country-nif-form__select__item-flag"/></span>
+        <div class="ix-country-nif-form__select__selected-item">
+          <span class="ix-country-nif-form__select__selected-item-text">{{ option.label }}</span>
+          <country-flag :country="option.value" size='small' class="ix-country-nif-form__select__selected-item-flag"/></span>
         </div>
       </template>
       <template slot="option" slot-scope="option">
@@ -66,7 +66,22 @@
 .ix{
 	&-country-nif-form{
 		&__select{
-			&__item{
+			&__selected-item{
+        position: absolute;
+        top: 0;
+        width: 100%;
+        &-text{
+          font-size: 0.9em;
+          line-height: 2rem;
+          color: $color-grey;
+        }
+        &-flag{
+            position: absolute;
+            right: 20px;
+            top: 8px;
+        }
+      }
+      &__item{
         cursor:pointer;
         position: relative;
         display: flex;
@@ -84,6 +99,18 @@
 		}
 	}
 	
+}
+
+// Overriding select Default Style
+// aligning indicator arrow
+.vs__dropdown-toggle {
+  padding: 4px 6px 5px!important;
+  border: 1px solid $color-grey-light!important;
+  border-radius: 4px;
+}
+
+.vs__selected{
+  width: 100%;
 }
 
 </style>

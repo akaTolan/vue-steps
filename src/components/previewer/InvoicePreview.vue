@@ -5,17 +5,18 @@
   		:style="`background:#${logoColor};`">
   		</div>
   		<div class="ix-invoice-preview__info__text">
-  			<span>{{name}}</span>
+  			<span><b>{{name}}</b></span>
   			<span>{{adress}}</span>
   			<span>{{zipCode}}</span>
   			<span>{{country}}</span>
-  			<span>Email: {{email}}</span>
-  			<span>Tel.: {{phone}}</span>
-  			<span>NIF: {{nif}}</span>
+  			<span><b>Email:</b> {{email}}</span>
+  			<span><b>Tel.:</b> {{phone}}</span>
+  			<span><b>NIF:</b> {{nif}}</span>
   		</div>
   	</div>
   	<div class="ix-invoice-preview__bg">
   		<img 
+      class="ix-invoice-preview__img" 
   		src="~@/assets/img/invoice.png" 
   		srcset="~@/assets/img/invoice@2x.png 2x">
 		</div>
@@ -60,9 +61,15 @@
       }
     },
     computed: {
-    // 	this.invoice.nif = this.getNif == 0 ? '000 000 000' : this.getNif
-		  // this.invoice.country = this.getCountry.label == '' ? 'NAO' : this.getCountry.label
-		  // this.invoice.color = this.getCountry.label == '' ? 'CCCCCC' : this.getInvoiceColor
+      getNif() {
+        return this.nif == 0 ? '000 000 000' : this.getNif
+      },
+      getCountry() {
+        return this.country == '' ? 'NAO' : this.country
+      },
+      getColor() {
+        return this.logoColor == '' ? 'CCCCCC' : this.logoColor
+      },
     }
   }
 </script>
@@ -89,7 +96,7 @@
 			top: 46%;
 			left: 25%;
 			transform: translateY(-50%);
-			z-index: 33;
+			z-index: 0;
 		}
 
 		&__info{
@@ -113,6 +120,13 @@
 			        padding-bottom: 100%;
 			        }
 			}
+
+
+      &__img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
 
 			&__text{
 				margin-top: 12px;

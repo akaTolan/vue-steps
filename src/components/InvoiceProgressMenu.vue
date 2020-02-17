@@ -1,6 +1,10 @@
 <template>
 	<div class="ix-progress-menu">
-		<div :class="`ix-progress-menu__button ix-progress-menu__button--bg-${getBackgroundColor(index)}`" v-for="(item, index) in views">
+		<div 
+		:class="`ix-progress-menu__button ix-progress-menu__button--bg-${getBackgroundColor(index)}`" 
+		v-for="(item, index) in views"
+		v-bind:key="index"
+		>
 			<span class="ix-progress-menu__icon"></span>
 			<span class="ix-progress-menu__text" v-text="item.text"></span>
 		</div>
@@ -64,6 +68,7 @@ $base: 16px;
 				right: $base / 1.35 * -1;
 				border-top-right-radius: 5px;
 				transform: rotate(45deg);
+				box-shadow: 1px -1px rgba(0,0,0,0.25);
 				z-index: 10;
 			}
 

@@ -1,5 +1,5 @@
 {
-  "name": "ix-challenge",
+  "name": "ix-frontend-challenge",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -7,6 +7,7 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "@vue/cli-plugin-babel": "^4.2.2",
     "bootstrap": "^4.4.1",
     "bootstrap-vue": "^2.4.1",
     "sass-rem": "^2.0.1",
@@ -19,12 +20,16 @@
     "vuex-persistedstate": "^2.7.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
     "@vue/cli-plugin-router": "~4.2.0",
     "@vue/cli-plugin-vuex": "~4.2.0",
     "@vue/cli-service": "~4.2.0",
+    "babel-loader": "^8.0.6",
     "node-sass": "^4.12.0",
     "sass-loader": "^8.0.2",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "^2.6.11",
+    "webpack": "^4.41.6"
   },
   "browserslist": [
     "> 1%",

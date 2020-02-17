@@ -7,10 +7,12 @@
         </div>
       </div>
       <div class="col-11 p-0">
-        <div class="ix-accordion-step__title" :class="{ selected: isActive }">{{title}}</div>
-        <div class="ix-accordion-step__form">
+        <div class="ix-accordion-step__title mb-2" :class="{ selected: isActive }">{{title}}</div>
+        <div class="ix-accordion-step__form" :style="`height:${getHeight()}px;`">
             <component
+            :ref="component"
             :is="component"
+            :active="isActive"
             @valid="onFormValid"
           />
           <div class="ix-button ix-button--green mb-3"
@@ -24,8 +26,8 @@
 </template>
 
 <script>
-  import CountryNifForm from '@components/CountryNifForm'
-  import ColorForm from '@components/ColorForm'
+  import CountryNifForm from '@components/forms/CountryNifForm'
+  import ColorForm from '@components/forms/ColorForm'
   export default {
     name: 'AccordionStep',
     components: {
@@ -48,7 +50,11 @@
       component: {
         type: String,
         default: ''
-      }
+      },
+      contentHeight: {
+        type: Number,
+        default: -1,
+      },
     },
      methods: {
       onFormValid() {
@@ -56,7 +62,11 @@
       },
       onNextStep() {
         console.log('onNextStep');
+        this.$emit('onContinue')
       },
+      getHeight() {
+        return this.isActive ? this.contentHeight - 202 : 0
+      }
      }
   }
 </script>
@@ -72,6 +82,7 @@
       border: 1px solid;
       border-color: $color-grey-light;
       position: relative;
+      pointer-events: none;
       
       &:after {
         content: "";
@@ -103,6 +114,10 @@
       &.selected{
         color: $color-grey-semidark;
       }
+    }
+    &__form{
+      overflow: hidden;
+      transition: height .5s ease-out;
     }
   }
 }

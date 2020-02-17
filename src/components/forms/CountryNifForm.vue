@@ -1,5 +1,5 @@
 <template>
-	<div class="ix-country-nif-form">
+	<div class="ix-country-nif-form" :class="{ active: active }">
 		<p class="ix-country-nif-form__text">Adicione o País e o NIF. Os dados apresentados serão pré-preenchidos nas suas facturas.</p>
     <div class="ix-form normal">
       <!-- COUNTRIES DROPDOWN -->
@@ -27,6 +27,12 @@
     name: 'CountryNifForm',
     components: {
         CountriesDropdown
+    },
+    props: {
+      active: {
+        type: Boolean,
+        default: false    
+      }
     },
     data: () => ({
         nif: '',
@@ -97,6 +103,11 @@
 <style lang="scss">
 .ix{
 	&-country-nif-form{
+    opacity: 0;
+    transition: opacity .25s ease-out;
+    &.active{
+      opacity: 1;
+    }
 		&__text{
 			font-size: 0.9em;
 			line-height: 2rem;

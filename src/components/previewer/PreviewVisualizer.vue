@@ -1,5 +1,5 @@
 <template>
-	<div class="ix-preview-visualizer">
+	<div class="ix-preview-visualizer" :style="`height:${contentHeight}px;`">
 		<div class="ix-preview-visualizer__invoice">
 			<img 
 		src="~@/assets/img/invoice.png" 
@@ -20,15 +20,24 @@
 		src="~@/assets/img/plant.png" 
 		srcset="~@/assets/img/plant@2x.png 2x">
 		</div>
+		<arrow class="ix-preview-visualizer__arrow"/>
 	</div>
 </template>
 <script>
-	import InvoicePreview from '@components/InvoicePreview'
+	import arrow from '@svg/arrow.svg'
+	import InvoicePreview from '@components/previewer/InvoicePreview'
 	import { mapActions, mapGetters } from 'vuex'
 	export default {
 		name: 'PreviewVisualizer',
 		components:{
-			InvoicePreview
+			InvoicePreview,
+			arrow
+		},
+		props: {
+			contentHeight: {
+			  type: Number,
+			  default: -1,
+			},
 		},
 		data: () => ({
 		    invoice: {
@@ -47,9 +56,6 @@
 		  ])
 		},
 		mounted() {
-		  this.invoice.nif = this.getNif == 0 ? '000 000 000' : this.getNif
-		  this.invoice.country = this.getCountry.label == '' ? 'NAO' : this.getCountry.label
-		  this.invoice.color = this.getCountry.label == '' ? 'CCCCCC' : this.getInvoiceColor
 		}
 	}
 </script>
@@ -57,7 +63,6 @@
 .ix{
 	
 	&-preview-visualizer {
-		height: 100%;
 		background-image: url("~@/assets/img/background.png");
 		background-size: cover;
 		background-repeat: no-repeat;
@@ -67,6 +72,21 @@
 			position: absolute;
 			bottom: 0;
 			z-index: 55;
+			pointer-events: none;
+		}
+
+		&__arrow{
+			position: absolute;
+			transform: translateX(-50%);
+			top: calc(50% - 280px);
+			left: calc(50% - 155px);
+			z-index: 55;
+			pointer-events: none;
+			
+			@include media-breakpoint-up(xl) { 
+				left: calc(50% - 180px);
+
+			 }
 		}
 
 		&__invoice{
@@ -74,9 +94,10 @@
 			top: 50%;
 			left: 15%;
 			transform: translateY(-50%);
-			z-index: 22;
+			z-index: 8;
 		}
 	}
+
 
 }
 
