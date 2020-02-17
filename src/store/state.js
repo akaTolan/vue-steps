@@ -1,5 +1,5 @@
 const state = {
-  country: undefined,
+  country: { label: '', value:''},
   nif: 0,
   invoiceColor: '',
   countriesUE:[

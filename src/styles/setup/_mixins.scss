@@ -7,15 +7,3 @@
 @mixin general-shadow(){
   @include box-shadow(5px ,5px ,22px ,rgba(0,0,0,0.3) , 0);
 }
-
-@mixin border-radius-all ($topleft: 5px, $topright: 5px, $bottomright: 5px, $bottomleft: 5px) {
-  border-radius			: $topleft $topright $bottomright $bottomleft;
-  -moz-border-radius		: $topleft $topright $bottomright $bottomleft;
-  -ms-border-radius		: $topleft $topright $bottomright $bottomleft;
-  -o-border-radius		: $topleft $topright $bottomright $bottomleft;
-  -webkit-border-radius	: $topleft $topright $bottomright $bottomleft;
-}
-
-@mixin general-border-radius(){
-  @include border-radius-all(5px, 5px, 5px, 5px);
-}

@@ -1,8 +1,9 @@
 export const formValidate = {
   methods: {
     isNifValid(value) {
-      console.log(value)
+      console.log('formValidate' , value)
       let nif = (typeof value === 'string') ? value : value.toString()
+      console.log('nif' , nif)
       // nif = Number(nif)
       let result = {
         valid: false,

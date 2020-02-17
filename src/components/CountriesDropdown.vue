@@ -12,13 +12,21 @@
       <template slot="selected-option" slot-scope="option">
         <div class="ix-country-nif-form__select__selected-item">
           <span class="ix-country-nif-form__select__selected-item-text">{{ option.label }}</span>
-          <country-flag :country="option.value" size='small' class="ix-country-nif-form__select__selected-item-flag"/></span>
+          <country-flag 
+          v-if="option.value" 
+          :country="option.value" 
+          size='small' 
+          class="ix-country-nif-form__select__selected-item-flag"/>
         </div>
       </template>
       <template slot="option" slot-scope="option">
         <div class="ix-country-nif-form__select__item">
           <span class="ix-country-nif-form__select__item-text">{{ option.label }}</span>
-          <country-flag :country="option.value" size='small' class="ix-country-nif-form__select__item-flag"/></span>
+          <country-flag 
+          v-if="option.value" 
+          :country="option.value" 
+          size='small' 
+          class="ix-country-nif-form__select__item-flag"/>
         </div>
     </template>
     </v-select>
@@ -76,9 +84,10 @@
           color: $color-grey;
         }
         &-flag{
+            box-shadow: 0px 0px 3px #00000080;
             position: absolute;
             right: 20px;
-            top: 8px;
+            top: 9px;
         }
       }
       &__item{
