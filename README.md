@@ -1,4 +1,4 @@
-# INVOICEXPRESS FRONTEND CHALLENGE
+# FRONTEND CHALLENGE
 This repository contains an prototype developed in Vue as a result of the proposed frontend challenge.
 It is able to be incorporated into any other application, both in Javascript and in Sass. 
 The prototype uses Vuex to manage the state of the information filled in by the user and reactive to any changes, using the plugin vuex-persistedstate to persist state between page reloads.
